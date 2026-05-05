@@ -1,7 +1,7 @@
 let angle = 0;
 let img;
 let spaceBackground;
-let LightCont = [255, 255, 204, 1000, 50, 1000];
+let LightCont = [255, 255, 204, 250, 0, 500]; // Light color (R, G, B) and position (X, Y, Z)
 // Click and drag the mouse to view the scene from different angles.
 
 function preload() {
@@ -30,7 +30,7 @@ function draw() {
   rotateY(angle);
   pointLight(...LightCont);
   texture(img);
-  angle += 0.005;
+  angle += 0.001;
   sphere(100);
   pop();
 
