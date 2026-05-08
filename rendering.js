@@ -1,8 +1,9 @@
 let angle = 0;
 let img;
 let spaceBackground;
-let LightCont = [255, 255, 204, 250, 0, 500]; // Light color (R, G, B) and position (X, Y, Z)
-// Click and drag the mouse to view the scene from different angles.
+let LightCont = [255, 255, 204, 350, 0, 500]; // Light color (R, G, B) and position (X, Y, Z)
+let lightAngle = atan2(LightCont[4], LightCont[3]);
+let ringLightin = [255, 255, 204, 100, 10, 100];
 
 function preload() {
   img = loadImage("imgs/planetTexture.png");
@@ -17,6 +18,7 @@ function setup() {
 function draw() {
   //BG
   push();
+
   noStroke();
   texture(spaceBackground);
   translate(0, 0, -500);
@@ -24,6 +26,8 @@ function draw() {
   pop();
   //planet
   push();
+  ambientLight(10);
+  translate(200, 0, -200);
   stroke(255, 0, 0);
   noStroke();
   rotate(-QUARTER_PI / 3);
@@ -32,19 +36,78 @@ function draw() {
   pointLight(...LightCont);
   texture(img);
   angle += 0.001;
-  sphere(100);
+  sphere(200);
   pop();
+  // SHADOW
+  push();
 
+  translate(200, 0, -199);
+
+  rotate(-QUARTER_PI / 3);
+  rotateX(HALF_PI - 0.2001);
+
+  noStroke();
+  fill(0, 0, 0, 120);
+
+  // Light direction
+  let lightAngle = atan2(
+    LightCont[4], // light Y
+    LightCont[3], // light X
+  );
+
+  // exact opposite side
+  let shadowCenter = lightAngle + PI;
+
+  // shadow size
+  let shadowWidth = PI * 0.5;
+
+  flatRing(
+    180,
+    320,
+    shadowCenter - shadowWidth / 2,
+    shadowCenter + shadowWidth / 2,
+  );
+  pop();
   //ring
   push();
-  // Create a 3D ring
+  // ambientLight(250);
+  translate(200, 0, -200);
+  pointLight(ringLightin); //x,y,z
+
   rotate(-QUARTER_PI / 3);
   rotateX(HALF_PI - 0.2);
+
   fill(205, 193, 159);
   noStroke();
-  pointLight(...LightCont);
-  torus(150, 10); // (Radius of ring, Radius of tube)
+
+  flatRing(220, 320, 0, TWO_PI);
+
   pop();
+}
+
+function flatRing(
+  innerRadius,
+  outerRadius,
+  startAngle,
+  endAngle,
+  detail = 100,
+) {
+  beginShape(TRIANGLE_STRIP);
+
+  for (let i = 0; i <= detail; i++) {
+    let angle = map(i, 0, detail, startAngle, endAngle);
+
+    let x1 = cos(angle) * innerRadius;
+    let y1 = sin(angle) * innerRadius;
+
+    let x2 = cos(angle) * outerRadius;
+    let y2 = sin(angle) * outerRadius;
+
+    vertex(x1, y1, 0);
+    vertex(x2, y2, 0);
+  }
+
+  endShape();
 }
 
 function windowResized() {
