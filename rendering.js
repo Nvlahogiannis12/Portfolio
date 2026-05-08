@@ -10,7 +10,8 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(1000, 1000, WEBGL);
+  let cnv = createCanvas(windowWidth, windowHeight, WEBGL);
+  cnv.style("display", "block");
 }
 
 function draw() {
@@ -44,4 +45,9 @@ function draw() {
   pointLight(...LightCont);
   torus(150, 10); // (Radius of ring, Radius of tube)
   pop();
+}
+
+function windowResized() {
+  // Resize canvas when window changes
+  resizeCanvas(windowWidth, windowHeight);
 }
