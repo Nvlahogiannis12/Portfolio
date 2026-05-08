@@ -3,7 +3,6 @@ let img;
 let spaceBackground;
 let LightCont = [255, 255, 204, 350, 0, 500]; // Light color (R, G, B) and position (X, Y, Z)
 let lightAngle = atan2(LightCont[4], LightCont[3]);
-let ringLightin = [255, 255, 204, 100, 10, 100];
 
 function preload() {
   img = loadImage("imgs/planetTexture.png");
@@ -41,25 +40,29 @@ function draw() {
   // SHADOW
   push();
 
-  translate(200, 0, -199);
+  // translate(200, 0, -195);
+let lightAngle = atan2(LightCont[4], LightCont[3]);
+let shadowOffset = 10;
+
+translate(
+  200 + cos(lightAngle + PI) * shadowOffset,
+  0 + sin(lightAngle + PI) * shadowOffset,
+  -200
+);
 
   rotate(-QUARTER_PI / 3);
   rotateX(HALF_PI - 0.2001);
 
   noStroke();
-  fill(0, 0, 0, 120);
+  fill(35, 35, 0, 120);
 
   // Light direction
-  let lightAngle = atan2(
-    LightCont[4], // light Y
-    LightCont[3], // light X
-  );
+  
 
-  // exact opposite side
   let shadowCenter = lightAngle + PI;
 
   // shadow size
-  let shadowWidth = PI * 0.5;
+  let shadowWidth = PI * 0.45;
 
   flatRing(
     180,
@@ -72,7 +75,7 @@ function draw() {
   push();
   // ambientLight(250);
   translate(200, 0, -200);
-  pointLight(ringLightin); //x,y,z
+  pointLight(255, 255, 204, 430, -130, -80); //x,y (- = up?),z
 
   rotate(-QUARTER_PI / 3);
   rotateX(HALF_PI - 0.2);
