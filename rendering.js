@@ -12,6 +12,13 @@ function preload() {
 function setup() {
   let cnv = createCanvas(windowWidth, windowHeight, WEBGL);
   cnv.style("display", "block");
+  cnv.parent("bannerDiv")
+
+  let myTitle = createP("Portfolio")
+  myTitle.position( height / 2 , width / 5)
+
+  myTitle.style('color', 'red');
+  myTitle.style('font-size', '20px');
 }
 
 function draw() {
