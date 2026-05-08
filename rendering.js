@@ -15,10 +15,10 @@ function setup() {
   cnv.parent("bannerDiv")
 
   let myTitle = createP("Portfolio")
-  myTitle.position( height / 2 , width / 5)
+  myTitle.position( height / 2 , width / 6)
 
   myTitle.style('color', 'red');
-  myTitle.style('font-size', '20px');
+  myTitle.style('font-size', '100px');
 }
 
 function draw() {
@@ -42,7 +42,7 @@ function draw() {
   pointLight(...LightCont);
   texture(img);
   angle += 0.001;
-  sphere(200);
+  sphere(width / 8);
   pop();
   // SHADOW
   push();
@@ -72,8 +72,8 @@ translate(
   let shadowWidth = PI * 0.45;
 
   flatRing(
-    180,
-    320,
+    (width / 8) * 0.9,
+    (width / 8) * 1.6,
     shadowCenter - shadowWidth / 2,
     shadowCenter + shadowWidth / 2,
   );
@@ -90,7 +90,12 @@ translate(
   fill(205, 193, 159);
   noStroke();
 
-  flatRing(220, 320, 0, TWO_PI);
+flatRing(
+  (width / 8) * 1.1, // inner edge
+  (width / 8) * 1.6, // outer edge
+  0,
+  TWO_PI
+);
 
   pop();
 }
