@@ -1,8 +1,9 @@
 let angle = 0;
+let myTitle;
 let img;
 let spaceBackground;
-let LightCont = [255, 255, 204, 350, 0, 500]; // Light color (R, G, B) and position (X, Y, Z)
-let lightAngle = atan2(LightCont[4], LightCont[3]);
+
+let LightCont = [255, 255, 204, 350, 0, 500];
 
 function preload() {
   img = loadImage("imgs/planetTexture.png");
@@ -11,78 +12,107 @@ function preload() {
 
 function setup() {
   let cnv = createCanvas(windowWidth, windowHeight, WEBGL);
+
   cnv.style("display", "block");
-  cnv.parent("bannerDiv")
+  cnv.parent("bannerDiv");
 
-  let myTitle = createP("Portfolio")
-  myTitle.position( height / 2 , width / 6)
+  myTitle = createP("Portfolio");
 
-  myTitle.style('color', 'red');
-  myTitle.style('font-size', '100px');
+ myTitle.position(width * 0.05, height * 0.2);
+ myTitle.style("font-size", `${min(width, height) * 0.15}px`);
+
+  myTitle.style("color", "white");
+// myTitle.style("font-size", `${min(width, height) * 0.18}px`);
 }
 
 function draw() {
-  //BG
+  clear();
+//Background
+push();
+
+drawingContext.disable(drawingContext.DEPTH_TEST);
+
+resetMatrix();
+
+let imgAspect = spaceBackground.width / spaceBackground.height;
+let canvasAspect = width / height;
+
+let drawW, drawH;
+
+// COVER logic (not contain)
+if (canvasAspect > imgAspect) {
+  drawW = width;
+  drawH = width / imgAspect;
+} else {
+  drawH = height;
+  drawW = height * imgAspect;
+}
+
+translate(-width / 2, -height / 2);
+
+image(spaceBackground, (width - drawW) / 2, (height - drawH) / 2, drawW, drawH);
+
+drawingContext.enable(drawingContext.DEPTH_TEST);
+
+pop();
+//Planet
   push();
 
-  noStroke();
-  texture(spaceBackground);
-  translate(0, 0, -500);
-  plane(2000, 2000);
-  pop();
-  //planet
-  push();
   ambientLight(10);
-  translate(200, 0, -200);
-  stroke(255, 0, 0);
-  noStroke();
+
+  let planetOffset = min(width, height) * 0.25;
+  let planetRadius = min(width, height) * 0.18;
+
+  translate(planetOffset, 0, -200);
+
   rotate(-QUARTER_PI / 3);
   rotateX(-0.2);
   rotateY(angle);
+
   pointLight(...LightCont);
+
+  noStroke();
   texture(img);
+
+  sphere(planetRadius);
+
   angle += 0.001;
-  sphere(width / 8);
+
   pop();
+
   // SHADOW
   push();
 
-  // translate(200, 0, -195);
-let lightAngle = atan2(LightCont[4], LightCont[3]);
-let shadowOffset = 10;
+  let lightAngle = atan2(LightCont[4], LightCont[3]);
 
-translate(
-  200 + cos(lightAngle + PI) * shadowOffset,
-  0 + sin(lightAngle + PI) * shadowOffset,
-  -200
-);
+  let shadowCenter = lightAngle + PI;
+  let shadowWidth = PI * 0.45;
+
+  translate(planetOffset, 0, -200);
 
   rotate(-QUARTER_PI / 3);
-  rotateX(HALF_PI - 0.2001);
+  rotateX(HALF_PI - 0.2);
 
   noStroke();
   fill(35, 35, 0, 120);
 
-  // Light direction
-  
-
-  let shadowCenter = lightAngle + PI;
-
-  // shadow size
-  let shadowWidth = PI * 0.45;
-
   flatRing(
-    (width / 8) * 0.9,
-    (width / 8) * 1.6,
+    planetRadius * 0.9,
+    planetRadius * 1.6,
     shadowCenter - shadowWidth / 2,
-    shadowCenter + shadowWidth / 2,
+    shadowCenter + shadowWidth / 2
   );
+
   pop();
-  //ring
+
+  // =========================
+  // RING
+  // =========================
   push();
-  // ambientLight(250);
-  translate(200, 0, -200);
-  pointLight(255, 255, 204, 430, -130, -80); //x,y (- = up?),z
+
+  translate(planetOffset, 0, -200);
+
+  pointLight(255, 255, 204, 430, -130, -80);
 
   rotate(-QUARTER_PI / 3);
   rotateX(HALF_PI - 0.2);
@@ -90,12 +120,12 @@ translate(
   fill(205, 193, 159);
   noStroke();
 
-flatRing(
-  (width / 8) * 1.1, // inner edge
-  (width / 8) * 1.6, // outer edge
-  0,
-  TWO_PI
-);
+  flatRing(
+    planetRadius * 1.1,
+    planetRadius * 1.6,
+    0,
+    TWO_PI
+  );
 
   pop();
 }
@@ -105,7 +135,7 @@ function flatRing(
   outerRadius,
   startAngle,
   endAngle,
-  detail = 100,
+  detail = 100
 ) {
   beginShape(TRIANGLE_STRIP);
 
@@ -126,6 +156,9 @@ function flatRing(
 }
 
 function windowResized() {
-  // Resize canvas when window changes
   resizeCanvas(windowWidth, windowHeight);
+
+  myTitle.position(width * 0.05, height * 0.2);
+
+  myTitle.style("font-size", `${min(width, height) * 0.15}px`);
 }
