@@ -31,6 +31,10 @@
     "desc": "",
     "link": ""
   },
+  "Soph-Falling_Leaves": {
+    "desc": "",
+    "link": ""
+  },
   "Soph-Portfolio": {
     "desc": "",
     "link": ""
@@ -38,5 +42,113 @@
   "Soph-First_10_Elements": {
     "desc": "",
     "link": ""
+  },
+  "Soph-Puppies": {
+    "desc": "",
+    "link": ""
+  },
+  "Soph-Farmer's_Market": {
+    "desc": "",
+    "link": ""
+  },
+  "Soph-Designer_Trubute": {
+    "desc": "",
+    "link": ""
+  },
+  "Soph-Vacation": {
+    "desc": "",
+    "link": ""
+  },
+  "Soph-Album_Covers": {
+    "desc": "",
+    "link": ""
+  },
+  "Soph-Coffee_Shop": {
+    "desc": "",
+    "link": ""
+  },
+  "Soph-Cancer_Pamphlet": {
+    "desc": "",
+    "link": ""
+  },
+  "Jr-Summertainment":{
+    "desc":"",
+    "link":""
+  },
+  "Jr-Monthly_Website":{
+    "desc":"",
+    "link":""
+  },
+  "Jr-Famous_Person":{
+    "desc":"",
+    "link":""
+  },
+  "Jr-Mad_Lib":{
+    "desc":"",
+    "link":""
+  },
+  "Jr-Name_Generator":{
+    "desc":"",
+    "link":""
+  },
+  "Jr-Rock,_Paper,_Scissors":{
+    "desc":"",
+    "link":""
+  },
+  "Jr-Presidential":{
+    "desc":"",
+    "link":""
+  },
+  "Jr-Hangman":{
+    "desc":"",
+    "link":""
+  },
+  "Jr-Wild_Card":{
+    "desc":"",
+    "link":""
+  },
+  "Jr-Toy_Bird_Co.":{
+    "desc":"",
+    "link":""
+  },
+  "Jr-Halloween_Animation":{
+    "desc":"",
+    "link":""
+  },
+  "Jr-Magic_8-Ball":{
+    "desc":"",
+    "link":""
+  },
+  "Jr-Card_Generator":{
+    "desc":"",
+    "link":""
+  },
+  "Sen-College_Recruitment":{
+    "desc":"",
+    "link":""
+  },
+  "Sen-Refresher_Site":{
+    "desc":"",
+    "link":""
+  },
+  "Sen-JSON_Lessons":{
+    "desc":"",
+    "link":""
+  },
+  "Sen-JQuery_Project":{
+    "desc":"",
+    "link":""
+  },
+  "Sen-Movie_Posters":{
+    "desc":"",
+    "link":""
+  },
+  "Sen-MHS_Project":{
+    "desc":"",
+    "link":""
+  },
+  "Sen-Client_Project":{
+    "desc":"",
+    "link":""
   }
 }
