@@ -1,5 +1,6 @@
 let angle = 0;
 let myTitle;
+let mySubtitle;
 let img;
 let spaceBackground;
 
@@ -17,45 +18,56 @@ function setup() {
   cnv.parent("bannerDiv");
 
   myTitle = createP("Portfolio");
+  mySubtitle = createP("Nick Vlahogiannis");
 
- myTitle.position(width * 0.05, height * 0.2);
- myTitle.style("font-size", `${min(width, height) * 0.15}px`);
+  myTitle.position(width * 0.05, height * 0.2);
+  myTitle.style("font-size", `${min(width, height) * 0.15}px`);
+
+  mySubtitle.position(width * 0.08, height * 0.2);
+  myTitle.style("font-size", `${min(width, height) * 0.1}px`);
 
   myTitle.style("color", "white");
-// myTitle.style("font-size", `${min(width, height) * 0.18}px`);
+  mySubtitle.style("color", "white");
+  // myTitle.style("font-size", `${min(width, height) * 0.18}px`);
 }
 
 function draw() {
   clear();
-//Background
-push();
+  //Background
+  push();
 
-drawingContext.disable(drawingContext.DEPTH_TEST);
+  drawingContext.disable(drawingContext.DEPTH_TEST);
 
-resetMatrix();
+  resetMatrix();
 
-let imgAspect = spaceBackground.width / spaceBackground.height;
-let canvasAspect = width / height;
+  let imgAspect = spaceBackground.width / spaceBackground.height;
+  let canvasAspect = width / height;
 
-let drawW, drawH;
+  let drawW, drawH;
 
-// COVER logic (not contain)
-if (canvasAspect > imgAspect) {
-  drawW = width;
-  drawH = width / imgAspect;
-} else {
-  drawH = height;
-  drawW = height * imgAspect;
-}
+  // COVER logic (not contain)
+  if (canvasAspect > imgAspect) {
+    drawW = width;
+    drawH = width / imgAspect;
+  } else {
+    drawH = height;
+    drawW = height * imgAspect;
+  }
 
-translate(-width / 2, -height / 2);
+  translate(-width / 2, -height / 2);
 
-image(spaceBackground, (width - drawW) / 2, (height - drawH) / 2, drawW, drawH);
+  image(
+    spaceBackground,
+    (width - drawW) / 2,
+    (height - drawH) / 2,
+    drawW,
+    drawH,
+  );
 
-drawingContext.enable(drawingContext.DEPTH_TEST);
+  drawingContext.enable(drawingContext.DEPTH_TEST);
 
-pop();
-//Planet
+  pop();
+  //Planet
   push();
 
   ambientLight(10);
@@ -100,7 +112,7 @@ pop();
     planetRadius * 0.9,
     planetRadius * 1.6,
     shadowCenter - shadowWidth / 2,
-    shadowCenter + shadowWidth / 2
+    shadowCenter + shadowWidth / 2,
   );
 
   pop();
@@ -120,12 +132,7 @@ pop();
   fill(205, 193, 159);
   noStroke();
 
-  flatRing(
-    planetRadius * 1.1,
-    planetRadius * 1.6,
-    0,
-    TWO_PI
-  );
+  flatRing(planetRadius * 1.1, planetRadius * 1.6, 0, TWO_PI);
 
   pop();
 }
@@ -135,7 +142,7 @@ function flatRing(
   outerRadius,
   startAngle,
   endAngle,
-  detail = 100
+  detail = 100,
 ) {
   beginShape(TRIANGLE_STRIP);
 
