@@ -15,28 +15,21 @@ function preload() {
 }
 
 function setup() {
-  // 1. Create the canvas
   let cnv = createCanvas(windowWidth, windowHeight, WEBGL);
-  updatePlanetStats();
 
-  for (let i = 0; i < 15; i++) {
-    meteors.push(new Meteor());
-  }
-
+  // 1. Set the parent first so width/height are correct
   let container = select("#bannerDiv");
   if (container) {
     cnv.parent("bannerDiv");
-  } else {
-    console.warn(
-      "Element #bannerDiv not found. Canvas attached to body instead.",
-    );
   }
 
-  cnv.style("display", "block");
+  // 2. Initialize planet stats BEFORE creating any meteors
+  updatePlanetStats();
 
-  // 3. Initialize Meteor Layer
+  cnv.style("display", "block");
   meteorLayer = createGraphics(windowWidth, windowHeight, WEBGL);
 
+  // 3. Populate array ONCE (Removed the double loop)
   for (let i = 0; i < 15; i++) {
     meteors.push(new Meteor());
   }
@@ -44,11 +37,9 @@ function setup() {
   // 4. UI Elements
   myTitle = createP("Portfolio");
   mySubtitle = createP("Nick Vlahogiannis");
-
   myTitle.position(width * 0.05, height * 0.2);
   myTitle.style("font-size", `${min(width, height) * 0.15}px`);
   myTitle.style("color", "white");
-
   mySubtitle.position(width * 0.08, height * 0.35);
   mySubtitle.style("font-size", `${min(width, height) * 0.08}px`);
   mySubtitle.style("color", "white");
@@ -85,21 +76,19 @@ function draw() {
   // --- PLANET & RINGS ---
   push();
   ambientLight(10);
-  let planetOffset = min(width, height) * 0.25;
-  let planetRadius = min(width, height) * 0.18;
-  translate(planetOffset, 0, -200);
+  // Use the global pX, pY, pZ set in updatePlanetStats
+  translate(pX, pY, pZ);
   rotate(-QUARTER_PI / 3);
   rotateX(-0.2);
   rotateY(angle);
   pointLight(...LightCont);
   noStroke();
   texture(img);
-  sphere(planetRadius);
+  sphere(min(width, height) * 0.18);
   angle += 0.001;
   pop();
 
-  // (Shadow and Ring logic remains the same as your previous version)
-  drawShadowAndRing(planetOffset, planetRadius);
+  drawShadowAndRing(pX, min(width, height) * 0.18);
 
   // --- METEOR LAYER ---
   if (meteorLayer) {
@@ -121,7 +110,6 @@ function draw() {
   }
 }
 
-// Helper for cleanliness
 function drawShadowAndRing(planetOffset, planetRadius) {
   push();
   let lightAngle = atan2(LightCont[4], LightCont[3]);
@@ -133,8 +121,8 @@ function drawShadowAndRing(planetOffset, planetRadius) {
   flatRing(
     planetRadius * 0.9,
     planetRadius * 1.6,
-    lightAngle + PI - (PI * 0.45) / 2,
-    lightAngle + PI + (PI * 0.45) / 2,
+    lightAngle + PI - 0.7,
+    lightAngle + PI + 0.7,
   );
   pop();
 
@@ -149,42 +137,6 @@ function drawShadowAndRing(planetOffset, planetRadius) {
   pop();
 }
 
-function mousePressed() {
-  let mx = mouseX - width / 2;
-  let my = mouseY - height / 2;
-  for (let m of meteors) {
-    if (m.isClicked(mx, my)) m.reset();
-  }
-}
-
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-
-  if (meteorLayer) meteorLayer.resizeCanvas(windowWidth, windowHeight);
-
-  if (myTitle) {
-    myTitle.position(width * 0.05, height * 0.2);
-    myTitle.style("font-size", `${min(width, height) * 0.15}px`);
-  }
-  updatePlanetStats();
-}
-
-function flatRing(
-  innerRadius,
-  outerRadius,
-  startAngle,
-  endAngle,
-  detail = 100,
-) {
-  beginShape(TRIANGLE_STRIP);
-  for (let i = 0; i <= detail; i++) {
-    let angle = map(i, 0, detail, startAngle, endAngle);
-    vertex(cos(angle) * innerRadius, sin(angle) * innerRadius, 0);
-    vertex(cos(angle) * outerRadius, sin(angle) * outerRadius, 0);
-  }
-  endShape();
-}
-
 class Meteor {
   constructor() {
     this.reset();
@@ -193,54 +145,55 @@ class Meteor {
   reset() {
     this.z = random(-3000, -5000);
     this.size = random(15, 35);
-    this.speed = random(10, 25);
+    this.speed = random(10, 20);
     this.rot = random(TWO_PI);
 
-    // COLOR LOGIC
-    let minColor = 200;
-    let maxColor = 255;
-    this.sharedRG =
-      Math.floor(Math.random() * (maxColor - minColor + 1)) + minColor;
-    this.blueVal = Math.floor(Math.random() * (250 - 200 + 1)) + 200;
+    // COLOR LOGIC: R and G match
+    this.sharedRG = floor(random(200, 255));
+    this.blueVal = floor(random(200, 250));
 
-    // --- NEW SPAWN PROTECTION ---
-    // Keep picking a random X and Y until it is NOT in the planet lane
+    // SPAWN LOGIC: Keep rerolling until outside the cylinder
     let safetyCheck = 0;
+    let spawnBuffer = pAvoid * 1.1; // Spawn slightly further out than the shield
+
     do {
-      this.x = random(-width, width);
-      this.y = random(-height, height);
+      this.x = random(-width * 1.5, width * 1.5);
+      this.y = random(-height * 1.5, height * 1.5);
       safetyCheck++;
-      // dist() against pX and pY (the planet's center)
-    } while (dist(this.x, this.y, pX, pY) < pAvoid && safetyCheck < 100);
+    } while (dist(this.x, this.y, pX, pY) < spawnBuffer && safetyCheck < 100);
   }
 
   update() {
     this.z += this.speed;
-
-    // SAFETY CHECK: Only run collision if planet variables exist and are numbers
-    if (typeof pX === "number" && typeof pAvoid === "number") {
+    if (typeof pX === "number") {
       this.checkCollision();
     }
-
     if (this.z > 500) this.reset();
   }
 
   checkCollision() {
+    // 1. 2D distance only (Treats planet/rings as an infinite cylinder)
     let d = dist(this.x, this.y, pX, pY);
-    let detectionRange = pAvoid * 1.5;
 
-    // If it gets too close while flying toward the planet
-    if (d < detectionRange && this.z < pZ) {
-      // If it somehow manages to get INSIDE pAvoid, push it out instantly
+    // 2. Detection Zone (Give the meteor plenty of time to steer)
+    let detectionRange = pAvoid * 1.8;
+
+    if (d < detectionRange) {
+      // Calculate direction away from planet center
+      let angle = atan2(this.y - pY, this.x - pX);
+
       if (d < pAvoid) {
-        let angle = atan2(this.y - pY, this.x - pX);
-        this.x = pX + cos(angle) * (pAvoid + 5);
-        this.y = pY + sin(angle) * (pAvoid + 5);
+        // HARD WALL: If it enters the cylinder, teleport it to the edge immediately
+        this.x = pX + cos(angle) * (pAvoid + 2);
+        this.y = pY + sin(angle) * (pAvoid + 2);
       } else {
-        // Smooth steering force
-        let force = map(d, pAvoid, detectionRange, 1.5, 0, true);
-        this.x += (this.x - pX) * 0.05 * force;
-        this.y += (this.y - pY) * 0.05 * force;
+        // SOFT STEER: Gently curve away as it approaches the lane
+        let force = map(d, pAvoid, detectionRange, 4.0, 0, true);
+        let steerX = cos(angle) * force;
+        let steerY = sin(angle) * force;
+
+        this.x += steerX;
+        this.y += steerY;
       }
     }
   }
@@ -256,7 +209,7 @@ class Meteor {
   }
 
   isClicked(mx, my) {
-    let perspective = 600 / abs(this.z);
+    let perspective = 600 / (abs(this.z) + 1);
     let d = dist(mx, my, this.x * perspective, this.y * perspective);
     return d < this.size * perspective * 2;
   }
@@ -266,5 +219,29 @@ function updatePlanetStats() {
   pX = min(width, height) * 0.25;
   pY = 0;
   pZ = -200;
-  pAvoid = min(width, height) * 0.45;
+  // This is the "Pipe" radius. 0.4 ensures it covers rings + a safety gap.
+  pAvoid = min(width, height) * 0.4;
+}
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  updatePlanetStats();
+  if (meteorLayer) meteorLayer.resizeCanvas(windowWidth, windowHeight);
+}
+
+function flatRing(iR, oR, sA, eA, det = 100) {
+  beginShape(TRIANGLE_STRIP);
+  for (let i = 0; i <= det; i++) {
+    let a = map(i, 0, det, sA, eA);
+    vertex(cos(a) * iR, sin(a) * iR, 0);
+    vertex(cos(a) * oR, sin(a) * oR, 0);
+  }
+  endShape();
+}
+
+function mousePressed() {
+  let mx = mouseX - width / 2;
+  let my = mouseY - height / 2;
+  for (let m of meteors) {
+    if (m.isClicked(mx, my)) m.reset();
+  }
 }
