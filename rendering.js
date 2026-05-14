@@ -36,13 +36,15 @@ function setup() {
 
   // 4. UI Elements
   myTitle = createP("Portfolio");
+  myTitle.style("font-family", "space");
   mySubtitle = createP("Nick Vlahogiannis");
   myTitle.position(width * 0.05, height * 0.2);
-  myTitle.style("font-size", `${min(width, height) * 0.15}px`);
+  myTitle.style("font-size", `${min(width, height) * 0.1}px`);
   myTitle.style("color", "white");
   mySubtitle.position(width * 0.08, height * 0.35);
   mySubtitle.style("font-size", `${min(width, height) * 0.08}px`);
   mySubtitle.style("color", "white");
+  mySubtitle.style("font-family", "space");
 }
 
 function draw() {
