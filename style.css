@@ -1,7 +1,6 @@
 html {
   height: 100%;
   width: 100%;
-  overflow-x: hidden;
 }
 
 @font-face {
@@ -17,6 +16,10 @@ html {
   font-family: "space";
 }
 
+.index {
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
 
 /* ::-webkit-scrollbar {
   width: 12px;

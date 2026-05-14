@@ -71,80 +71,80 @@
     "desc": "",
     "link": ""
   },
-  "Jr-Summertainment":{
-    "desc":"My First Project of Jr Year, The Task: Recap Your Summer",
-    "link":"https://nvlahogiannis12.github.io/Summer-Tainment-Site/"
+  "Jr-Summertainment": {
+    "desc": "My First Project of Jr Year, The Task: Recap Your Summer",
+    "link": "https://nvlahogiannis12.github.io/Summer-Tainment-Site/"
   },
-  "Jr-Monthly_Website":{
-    "desc":"A Gallery of Websites, each experimenting with new features to help me build the next site.",
-    "link":"https://nvlahogiannis12.github.io/Monthly_Website_Gallery/"
+  "Jr-Monthly_Website": {
+    "desc": "A Gallery of Websites, each experimenting with new features to help me build the next site.",
+    "link": "https://nvlahogiannis12.github.io/Monthly_Website_Gallery/"
   },
-  "Jr-Famous_Person":{
-    "desc":"My First Monthly Website, Create a Biography of F. Scott Fitzgerald.",
-    "link":"https://nvlahogiannis12.github.io/Look_Ma_Im_Famous/"
+  "Jr-Famous_Person": {
+    "desc": "My First Monthly Website, Create a Biography of F. Scott Fitzgerald.",
+    "link": "https://nvlahogiannis12.github.io/Look_Ma_Im_Famous/"
   },
-  "Jr-Magic_8-Ball":{
-    "desc":"Experienting with random number generators that assign each number to a set of words.",
-    "link":"https://nvlahogiannis12.github.io/Magic-8-Ball/"
+  "Jr-Magic_8-Ball": {
+    "desc": "Experienting with random number generators that assign each number to a set of words.",
+    "link": "https://nvlahogiannis12.github.io/Magic-8-Ball/"
   },
-  "Jr-Mad_Lib":{
-    "desc":"Monthly Website to take info inputed by the user then use generate text with that info.",
-    "link":"https://nvlahogiannis12.github.io/Mad-LIB/"
+  "Jr-Mad_Lib": {
+    "desc": "Monthly Website to take info inputed by the user then use generate text with that info.",
+    "link": "https://nvlahogiannis12.github.io/Mad-LIB/"
   },
-  "Jr-Name_Generator":{
-    "desc":"Monthly Website that took random numbers and user input to create a fantasy name.",
-    "link":"https://nvlahogiannis12.github.io/Name-Gen-Dec/"
+  "Jr-Name_Generator": {
+    "desc": "Monthly Website that took random numbers and user input to create a fantasy name.",
+    "link": "https://nvlahogiannis12.github.io/Name-Gen-Dec/"
   },
-  "Jr-Rock,_Paper,_Scissors":{
-    "desc":"Monthly website that used If statements to play rock paper scissors.",
-    "link":"https://nvlahogiannis12.github.io/Rock-Paper-Scissors/"
+  "Jr-Rock,_Paper,_Scissors": {
+    "desc": "Monthly website that used If statements to play rock paper scissors.",
+    "link": "https://nvlahogiannis12.github.io/Rock-Paper-Scissors/"
   },
-  "Jr-Presidential":{
-    "desc":"Monthly Website to create a site on James Madison.",
-    "link":"https://nvlahogiannis12.github.io/James-Madison-Feb/"
+  "Jr-Presidential": {
+    "desc": "Monthly Website to create a site on James Madison.",
+    "link": "https://nvlahogiannis12.github.io/James-Madison-Feb/"
   },
-  "Jr-Hangman":{
-    "desc":"Monthly Website to take words in a list pick one and generate a Hangman Game",
-    "link":"https://nvlahogiannis12.github.io/Sham-Hang-Mar/"
+  "Jr-Hangman": {
+    "desc": "Monthly Website to take words in a list pick one and generate a Hangman Game",
+    "link": "https://nvlahogiannis12.github.io/Sham-Hang-Mar/"
   },
-  "Jr-Java_Knight":{
-    "desc":"Monthly Website where I created an Turn Based RPG.",
-    "link":"https://nvlahogiannis12.github.io/JavaKnight/"
+  "Jr-Java_Knight": {
+    "desc": "Monthly Website where I created an Turn Based RPG.",
+    "link": "https://nvlahogiannis12.github.io/JavaKnight/"
   },
-  "Jr-Card_Generator":{
-    "desc":"Monthly Website to take data from a list and automatically generate them as cards.",
-    "link":"https://nvlahogiannis12.github.io/May-Majora-s_Mask/"
+  "Jr-Card_Generator": {
+    "desc": "Monthly Website to take data from a list and automatically generate them as cards.",
+    "link": "https://nvlahogiannis12.github.io/May-Majora-s_Mask/"
   },
-  "Jr-Toy_Bird_Co.":{
-    "desc":"Monthly Website to create a website for a fake client while working with other classmates.",
-    "link":"https://nvlahogiannis12.github.io/Toy-Birb-Co/"
+  "Jr-Toy_Bird_Co.": {
+    "desc": "Monthly Website to create a website for a fake client while working with other classmates.",
+    "link": "https://nvlahogiannis12.github.io/Toy-Birb-Co/"
   },
-  "Jr-Halloween_Animation":{
-    "desc":"A test of CSS animations",
-    "link":"https://nvlahogiannis12.github.io/GhostA-Project/"
+  "Jr-Halloween_Animation": {
+    "desc": "A test of CSS animations",
+    "link": "https://nvlahogiannis12.github.io/GhostA-Project/"
   },
-  "Jr-ChopSticks":{
-    "desc":"A Personal Monthly website I made where i created my first bot to play ChopSticks with.",
-    "link":"https://nvlahogiannis12.github.io/ChopSticks/"
+  "Jr-ChopSticks": {
+    "desc": "A Personal Monthly website I made where i created my first bot to play ChopSticks with.",
+    "link": "https://nvlahogiannis12.github.io/ChopSticks/"
   },
-  "Sen-College_Recruitment":{
-    "desc":"First Project of Senior Year to create a site that makes people excited for college.",
-    "link":"https://nvlahogiannis12.github.io/College-Recruit-Site/"
+  "Sen-College_Recruitment": {
+    "desc": "First Project of Senior Year to create a site that makes people excited for college.",
+    "link": "https://nvlahogiannis12.github.io/College-Recruit-Site/"
   },
-  "Sen-Movie_Posters":{
-    "desc":"A list of Movies with auto generating cards using JSON and Vue.",
-    "link":"https://nvlahogiannis12.github.io/NJIT-3_StarterFiles/"
+  "Sen-Movie_Posters": {
+    "desc": "A list of Movies with auto generating cards using JSON and Vue.",
+    "link": "https://nvlahogiannis12.github.io/NJIT-3_StarterFiles/"
   },
-  "Sen-MHS_Project":{
-    "desc":"A news generator project designed to as a proposed idea to better the Life of MHS Students.",
-    "link":"https://james-ibersteen-hawker.github.io/WeeklyNewsSite/"
+  "Sen-MHS_Project": {
+    "desc": "A news generator project designed to as a proposed idea to better the Life of MHS Students.",
+    "link": "https://james-ibersteen-hawker.github.io/WeeklyNewsSite/"
   },
-  "Sen-Client_Project":{
-    "desc":"A project to find and pick a real life client to work with and design a website for.",
-    "link":"https://nvlahogiannis12.github.io/CrystalBread/"
+  "Sen-Client_Project": {
+    "desc": "A project to find and pick a real life client to work with and design a website for.",
+    "link": "https://nvlahogiannis12.github.io/CrystalBread/"
   },
-  "Sen-Pokedex":{
-    "desc":"A personal project to create a fully working Pokemon database.",
-    "link":"https://nvlahogiannis12.github.io/Pokedex/"
+  "Sen-Pokedex": {
+    "desc": "A personal project to create a fully working Pokemon database.",
+    "link": "https://nvlahogiannis12.github.io/Pokedex/"
   }
 }
