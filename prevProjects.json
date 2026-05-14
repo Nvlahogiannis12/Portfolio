@@ -1,9 +1,9 @@
 {
-  "Soph-Hello World": {
+  "Soph-Hello_World": {
     "desc": "",
     "link": ""
   },
-  "Soph-Solar System": {
+  "Soph-Solar_System": {
     "desc": "",
     "link": ""
   },
@@ -11,27 +11,27 @@
     "desc": "",
     "link": ""
   },
-  "Soph-Chess Board": {
+  "Soph-Chess_Board": {
     "desc": "",
     "link": ""
   },
-  "Soph-Perfect Pumpkin Pie": {
+  "Soph-Perfect_Pumpkin_Pie": {
     "desc": "",
     "link": ""
   },
-  "Soph-Halloween Movies": {
+  "Soph-Halloween_Movies": {
     "desc": "",
     "link": ""
   },
-  "Soph-Nav Bar": {
+  "Soph-Nav_Bar": {
     "desc": "",
     "link": ""
   },
-  "Soph-Nj Lighthouses": {
+  "Soph-Nj_Lighthouses": {
     "desc": "",
     "link": ""
   },
-  "Soph-Falling Leaves": {
+  "Soph-Falling_Leaves": {
     "desc": "",
     "link": ""
   },
@@ -39,7 +39,7 @@
     "desc": "",
     "link": ""
   },
-  "Soph-First 10 Elements": {
+  "Soph-First_10_Elements": {
     "desc": "",
     "link": ""
   },
@@ -47,11 +47,11 @@
     "desc": "",
     "link": ""
   },
-  "Soph-Farmer's Market": {
+  "Soph-Farmer's_Market": {
     "desc": "",
     "link": ""
   },
-  "Soph-Designer Trubute": {
+  "Soph-Designer_Trubute": {
     "desc": "",
     "link": ""
   },
@@ -59,96 +59,92 @@
     "desc": "",
     "link": ""
   },
-  "Soph-Album Covers": {
+  "Soph-Album_Covers": {
     "desc": "",
     "link": ""
   },
-  "Soph-Coffee Shop": {
+  "Soph-Coffee_Shop": {
     "desc": "",
     "link": ""
   },
-  "Soph-Cancer Pamphlet": {
+  "Soph-Cancer_Pamphlet": {
     "desc": "",
     "link": ""
   },
-  "Jr-Summertainment": {
-    "desc": "",
-    "link": ""
+  "Jr-Summertainment":{
+    "desc":"My First Project of Jr Year, The Task: Recap Your Summer",
+    "link":"https://nvlahogiannis12.github.io/Summer-Tainment-Site/"
   },
-  "Jr-Monthly Website": {
-    "desc": "",
-    "link": ""
+  "Jr-Monthly_Website":{
+    "desc":"A Gallery of Websites, each experimenting with new features to help me build the next site.",
+    "link":"https://nvlahogiannis12.github.io/Monthly_Website_Gallery/"
   },
-  "Jr-Famous Person": {
-    "desc": "",
-    "link": ""
+  "Jr-Famous_Person":{
+    "desc":"My First Monthly Website, Create a Biography of F. Scott Fitzgerald.",
+    "link":"https://nvlahogiannis12.github.io/Look_Ma_Im_Famous/"
   },
-  "Jr-Mad Lib": {
-    "desc": "",
-    "link": ""
+  "Jr-Magic_8-Ball":{
+    "desc":"Experienting with random number generators that assign each number to a set of words.",
+    "link":"https://nvlahogiannis12.github.io/Magic-8-Ball/"
   },
-  "Jr-Name Generator": {
-    "desc": "",
-    "link": ""
+  "Jr-Mad_Lib":{
+    "desc":"Monthly Website to take info inputed by the user then use generate text with that info.",
+    "link":"https://nvlahogiannis12.github.io/Mad-LIB/"
   },
-  "Jr-Rock, Paper, Scissors": {
-    "desc": "",
-    "link": ""
+  "Jr-Name_Generator":{
+    "desc":"Monthly Website that took random numbers and user input to create a fantasy name.",
+    "link":"https://nvlahogiannis12.github.io/Name-Gen-Dec/"
   },
-  "Jr-Presidential": {
-    "desc": "",
-    "link": ""
+  "Jr-Rock,_Paper,_Scissors":{
+    "desc":"Monthly website that used If statements to play rock paper scissors.",
+    "link":"https://nvlahogiannis12.github.io/Rock-Paper-Scissors/"
   },
-  "Jr-Hangman": {
-    "desc": "",
-    "link": ""
+  "Jr-Presidential":{
+    "desc":"Monthly Website to create a site on James Madison.",
+    "link":"https://nvlahogiannis12.github.io/James-Madison-Feb/"
   },
-  "Jr-Wild Card": {
-    "desc": "",
-    "link": ""
+  "Jr-Hangman":{
+    "desc":"Monthly Website to take words in a list pick one and generate a Hangman Game",
+    "link":"https://nvlahogiannis12.github.io/Sham-Hang-Mar/"
   },
-  "Jr-Toy Bird Co.": {
-    "desc": "",
-    "link": ""
+  "Jr-Java_Knight":{
+    "desc":"Monthly Website where I created an Turn Based RPG.",
+    "link":"https://nvlahogiannis12.github.io/JavaKnight/"
   },
-  "Jr-Halloween Animation": {
-    "desc": "",
-    "link": ""
+  "Jr-Card_Generator":{
+    "desc":"Monthly Website to take data from a list and automatically generate them as cards.",
+    "link":"https://nvlahogiannis12.github.io/May-Majora-s_Mask/"
   },
-  "Jr-Magic 8-Ball": {
-    "desc": "",
-    "link": ""
+  "Jr-Toy_Bird_Co.":{
+    "desc":"Monthly Website to create a website for a fake client while working with other classmates.",
+    "link":"https://nvlahogiannis12.github.io/Toy-Birb-Co/"
   },
-  "Jr-Card Generator": {
-    "desc": "",
-    "link": ""
+  "Jr-Halloween_Animation":{
+    "desc":"A test of CSS animations",
+    "link":"https://nvlahogiannis12.github.io/GhostA-Project/"
   },
-  "Sen-College Recruitment": {
-    "desc": "",
-    "link": ""
+  "Jr-ChopSticks":{
+    "desc":"A Personal Monthly website I made where i created my first bot to play ChopSticks with.",
+    "link":"https://nvlahogiannis12.github.io/ChopSticks/"
   },
-  "Sen-Refresher Site": {
-    "desc": "",
-    "link": ""
+  "Sen-College_Recruitment":{
+    "desc":"First Project of Senior Year to create a site that makes people excited for college.",
+    "link":"https://nvlahogiannis12.github.io/College-Recruit-Site/"
   },
-  "Sen-JSON Lessons": {
-    "desc": "",
-    "link": ""
+  "Sen-Movie_Posters":{
+    "desc":"A list of Movies with auto generating cards using JSON and Vue.",
+    "link":"https://nvlahogiannis12.github.io/NJIT-3_StarterFiles/"
   },
-  "Sen-JQuery Project": {
-    "desc": "",
-    "link": ""
+  "Sen-MHS_Project":{
+    "desc":"A news generator project designed to as a proposed idea to better the Life of MHS Students.",
+    "link":"https://james-ibersteen-hawker.github.io/WeeklyNewsSite/"
   },
-  "Sen-Movie Posters": {
-    "desc": "",
-    "link": ""
+  "Sen-Client_Project":{
+    "desc":"A project to find and pick a real life client to work with and design a website for.",
+    "link":"https://nvlahogiannis12.github.io/CrystalBread/"
   },
-  "Sen-MHS Project": {
-    "desc": "",
-    "link": ""
-  },
-  "Sen-Client Project": {
-    "desc": "",
-    "link": ""
+  "Sen-Pokedex":{
+    "desc":"A personal project to create a fully working Pokemon database.",
+    "link":"https://nvlahogiannis12.github.io/Pokedex/"
   }
 }
