@@ -145,7 +145,7 @@ class Meteor {
   reset() {
     this.z = random(-3000, -5000);
     this.size = random(15, 35);
-    this.speed = random(10, 20);
+    this.speed = random(5, 10);
     this.rot = random(TWO_PI);
 
     // COLOR LOGIC: R and G match
@@ -172,22 +172,17 @@ class Meteor {
   }
 
   checkCollision() {
-    // 1. 2D distance only (Treats planet/rings as an infinite cylinder)
     let d = dist(this.x, this.y, pX, pY);
 
-    // 2. Detection Zone (Give the meteor plenty of time to steer)
     let detectionRange = pAvoid * 1.8;
 
     if (d < detectionRange) {
-      // Calculate direction away from planet center
       let angle = atan2(this.y - pY, this.x - pX);
 
       if (d < pAvoid) {
-        // HARD WALL: If it enters the cylinder, teleport it to the edge immediately
         this.x = pX + cos(angle) * (pAvoid + 2);
         this.y = pY + sin(angle) * (pAvoid + 2);
       } else {
-        // SOFT STEER: Gently curve away as it approaches the lane
         let force = map(d, pAvoid, detectionRange, 4.0, 0, true);
         let steerX = cos(angle) * force;
         let steerY = sin(angle) * force;
