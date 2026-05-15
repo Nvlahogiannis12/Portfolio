@@ -22,23 +22,15 @@ async function init() {
 function sortYears(year) {
   const row = document.getElementById("cardcontainment");
 
-  // clear old cards
   row.innerHTML = "";
-
-  // clear old sorted list
   gradeSort = [];
 
-  // loop through JSON
   Object.entries(data).forEach(([name, project]) => {
-    // check if project belongs to selected year
     if (name.includes(year)) {
-      // store matching names
       gradeSort.push(name);
 
-      // clean display name
       let cleanName = name.replace(year, "").replaceAll("_", " ");
 
-      // create card
       const col = document.createElement("div");
       col.className = "col-6 col-lg-3";
 

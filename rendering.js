@@ -30,7 +30,7 @@ function setup() {
   meteorLayer = createGraphics(windowWidth, windowHeight, WEBGL);
 
   // 3. Populate array ONCE (Removed the double loop)
-  for (let i = 0; i < 15; i++) {
+  for (let i = 0; i < 30; i++) {
     meteors.push(new Meteor());
   }
 
@@ -146,7 +146,7 @@ class Meteor {
 
   reset() {
     this.z = random(-3000, -5000);
-    this.size = random(15, 35);
+    this.size = random(10, 40);
     this.speed = random(5, 10);
     this.rot = random(TWO_PI);
 

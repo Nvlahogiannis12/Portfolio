@@ -13,14 +13,35 @@
 </head>
 
 <body>
-    <header>
+    <header id="vanishify">
         <!-- place navbar here -->
+        <div class="d-flex justify-content-end">
+            <ul class="nav nav-underline">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="index.html">
+                        <h2>Home</h2>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="projects.html">
+                        <h2>Projects</h2>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="">
+                        <h2>About Me</h2>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </header>
     <main>
-        <div class="cardcontainment" id="cardcontainment"></div>
         <button class="year1" onclick="sortYears('Soph-')">Soph</button>
         <button class="year2" onclick="sortYears('Jr-')">Jr</button>
         <button class="year3" onclick="sortYears('Sen-')">Senior</button>
+        <div class="cardcontainment" id="cardcontainment"></div>
     </main>
     <footer>
         <!-- place footer here -->
